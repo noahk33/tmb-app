@@ -2986,4 +2986,15 @@ function App(){
     ),
     h('div',{style:{flex:1,display:'flex',flexDirection:'column',overflow:'hidden'}},screen),
     h('nav',{className:'tab-bar'},
-      [{id:'today',label:'Today',icon:Ic.today},{id:'
+      [{id:'today',label:'Today',icon:Ic.today},{id:'map',label:'Map',icon:Ic.map},{id:'stages',label:'Stages',icon:Ic.list},{id:'nearby',label:'Nearby',icon:Ic.compass},{id:'connect',label:'Connect',icon:Ic.link},{id:'emergency',label:'SOS',icon:Ic.shield}].map(function(t){
+        var active=tab===t.id||(tab==='detail'&&t.id==='stages');
+        return h('button',{key:t.id,className:'tab-btn'+(active?' on':''),onClick:function(){nav(t.id)}},h(t.icon,null),h('span',null,t.label));
+      })
+    )
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>
