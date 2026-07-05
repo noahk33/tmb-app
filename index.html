@@ -1654,6 +1654,25 @@ var PLACE_DATABASE = {
     description:"The most dramatic final act on the TMB: a ridge walk with Mont Blanc, the Mer de Glace, and the Chamonix needle skyline directly ahead. The best view of the entire circuit.",
     mustKnow:null
   },
+  // ── NEW v4 PLACES ─────────────────────────────────────────
+  martigny_boutique_hotel:{
+    id:"martigny_boutique_hotel",name:"Martigny Boutique Hôtel",type:"Boutique Hotel",region:"Martigny, Switzerland",
+    coords:{lat:46.1030,lng:7.0750},
+    contact:{phone:"+41 27 720 90 20",website:"https://www.martignyboutiquehotel.com",email:"info@martignyboutiquehotel.com"},
+    logistics:{checkin:"15:00",checkout:"11:00",altitude:471},
+    photos:["https://commons.wikimedia.org/wiki/Special:FilePath/Martigny_panorama.jpg?width=400"],
+    description:"Stylish boutique hotel in Martigny city centre, 5 min walk from Martigny-Gare CFF. Your planned Jul 12 overnight. Full city amenities — hot bath, restaurant, room service. Ideal recovery before the final push.",
+    mustKnow:"PostBus Line 213 to Col de la Forclaz departs Martigny gare 07:55 → arrives Col de la Forclaz 08:28. Walk to the station takes ~5 min from the hotel."
+  },
+  hostellerie_petit_st_bernard:{
+    id:"hostellerie_petit_st_bernard",name:"Hostellerie du Petit Saint Bernard",type:"Mountain Hotel",region:"Col du Petit Saint Bernard, France/Italy",
+    coords:{lat:45.6762,lng:6.8847},
+    contact:{phone:"+33 4 79 07 24 82",website:"http://www.petit-saint-bernard.fr",email:"contact@petit-saint-bernard.fr"},
+    logistics:{checkin:"15:00",checkout:"10:00",altitude:2188},
+    photos:["https://commons.wikimedia.org/wiki/Special:FilePath/Col_du_Petit_Saint_Bernard.jpg?width=400"],
+    description:"Historic hospice-hotel at Col du Petit Saint Bernard (2188m) on the French-Italian border. After the Stage 2 crossing and taxi from Les Chapieux — comfortable stop before the Arriva 573 bus to Courmayeur.",
+    mustKnow:"La Thuile is 13km downhill from the col. On Jul 9: taxi or walk to La Thuile (~45 min taxi, ~3h walk), then Arriva 573 bus → Courmayeur. Best bus: 08:10 La Thuile → 08:37 Courmayeur."
+  }
 };
 
 // ============================================================
@@ -1712,7 +1731,8 @@ var WIKI_TITLES = {
   balme_plateau:         'Aiguille de la Pennaz',
   lac_champex:           'Champex',
   aiguilles_rouges:      'Aiguilles Rouges',
-
+  martigny_boutique_hotel:'Martigny',
+  hostellerie_petit_st_bernard:'Col du Petit Saint Bernard',
 };
 
 // ============================================================
@@ -1732,7 +1752,7 @@ var TRANSPORT_ROUTES = {
     timetable_url:"https://en.lesarcs.com/move-around/bourg-saint-maurice-les-chapieux",
     ticket_url:null,
     last_verified:"2026-05",
-    stageDay:4
+    stageDay:3
   },
   // ── t2: Courmayeur ↔ Val Ferret (SAVDA) ──────────────────────────────────
   t2:{
@@ -1754,15 +1774,15 @@ var TRANSPORT_ROUTES = {
     id:"t3",name:"Trient \u2192 Martigny (PostBus)",
     from:"Trient / Col de la Forclaz",to:"Martigny (Gare CFF)",
     operator:"PostAuto Schweiz (Swiss PostBus) Line 213",type:"Bus",
-    purpose:"Emergency / weather bailout — connects to Swiss rail network at Martigny",
+    purpose:"Planned Jul 12 evening route — PostBus from Trient to Martigny after the Bovine stage",
     stop:"Trient, Col-de-la-Forclaz (bus stop in village)",
     coords:{lat:46.0557,lng:7.0228},
-    summary:"~4 departures daily (check sbb.ch for exact times). ~20–25 min Trient→Martigny. CHF 4\u20136 (exact fare, pay driver or use SBB app). Iconic yellow Swiss postal bus.",
-    notes:"From Martigny you can reach Geneva Airport in \u22481h20 by direct train. Check sbb.ch for live connections. Swiss Half Fare Card and GA Pass accepted.",
+    summary:"~7 departures daily (peak summer). Key Jul 12 options: Trient depart ~17:00 → Martigny ~17:43, or ~17:46 → ~18:29. From Col de la Forclaz: ~5 min earlier. CHF 4–6. Pay driver or use SBB app.",
+    notes:"Verify exact 2026 times on sbb.ch or carpostal.ch. Swiss Half Fare Card and GA Pass accepted. From Martigny you can reach Geneva Airport in ≈1h20 by direct train. On Jul 13 morning: PostBus 213 departs Martigny gare 07:55 → Col de la Forclaz 08:28.",
     timetable_url:"https://www.tmrsa.ch/en/timetables/",
     ticket_url:"https://www.sbb.ch/en/buying/pages/fahrplan/fahrplan.xhtml",
-    last_verified:"2026-05",
-    stageDay:8
+    last_verified:"2026-06",
+    stageDay:7
   },
   // ── t4: Argentière ↔ Chamonix (Chamonix Bus) ─────────────────────────────
   t4:{
@@ -1823,6 +1843,51 @@ var TRANSPORT_ROUTES = {
     ticket_url:"https://www.sbb.ch/en/buying/pages/fahrplan/fahrplan.xhtml",
     last_verified:"2026-05",
     stageDay:6
+  },
+  // ── t8: Arriva 573 — La Thuile → Courmayeur ──────────────────────────────
+  t8:{
+    id:"t8",name:"Arriva Bus 573 — La Thuile → Courmayeur",
+    from:"La Thuile (Piazza Imperatore Augusto)",to:"Courmayeur (Piazzale Monte Bianco)",
+    operator:"Arriva Italia",type:"Regional bus",
+    purpose:"Day 4 key transport: La Thuile (below Col du Petit Saint Bernard) to Courmayeur",
+    stop:"La Thuile main bus stop, Piazza Imperatore Augusto",
+    coords:{lat:45.7200,lng:6.9400},
+    summary:"6 departures DAILY to Courmayeur (summer 2026, valid Jun 11–Sep 9): 08:10→08:37 | 09:18→09:45 | 11:15→11:42 | 14:25→14:52 | 16:13→16:40 | 17:43→18:10. ⚠️ 07:15, 13:05, 19:15, 20:15 terminate Pré-Saint-Didier — do NOT reach Courmayeur.",
+    notes:"Official 2026 summer timetable verified from Arriva Italia PDF (valid Jun 11–Sep 9 2026). From Col du Petit Saint Bernard: taxi ~45 min to La Thuile (~€40–50). Target the 08:10 bus for early Courmayeur arrival. Check arriva.it or La Thuile tourist office for any last-minute changes.",
+    timetable_url:"https://arriva.it/app/uploads/sites/3/2022/09/000573-Courmayeur-LaThuile.pdf",
+    ticket_url:"https://aosta.arriva.it/en/courmayeur-mont-blanc/",
+    last_verified:"2026-06",
+    stageDay:4
+  },
+  // ── t9: Orsières → Martigny (Saint Bernard Express / TMR) ─────────────────
+  t9:{
+    id:"t9",name:"Orsières → Martigny (Saint Bernard Express)",
+    from:"Orsières (train station)",to:"Martigny (Gare CFF)",
+    operator:"TMR SA (Transports de Martigny et Régions)",type:"Mountain railway",
+    purpose:"Jul 12 shortcut option — walk Champex-Lac → Orsières (~6km, -580m, ~2h) then train to Martigny",
+    stop:"Orsières Gare (train station, in the valley below Champex)",
+    coords:{lat:45.9990,lng:7.1440},
+    summary:"Frequent service throughout the day (~hourly). Journey ~25 min. ~CHF 7–8. Confirm exact times on sbb.ch.",
+    notes:"⚠️ This option SKIPS Stage 8 (Alp Bovine + Trient) entirely. Walk Champex-Lac → Orsières: ~6km, -580m, ~2h (all downhill, no cols). The Bovine route does NOT pass through Orsières — Orsières is in the opposite direction (valley floor, southeast of Champex). Best if legs are tired and you want a shorter Day 7. On Jul 13, same PostBus from Martigny either way.",
+    timetable_url:"https://www.sbb.ch/en/",
+    ticket_url:"https://www.sbb.ch/en/",
+    last_verified:"2026-06",
+    stageDay:7
+  },
+  // ── t10: Martigny → Col de la Forclaz (PostBus 213) ───────────────────────
+  t10:{
+    id:"t10",name:"Martigny → Col de la Forclaz (PostBus 213)",
+    from:"Martigny (Gare CFF)",to:"Col de la Forclaz / Trient",
+    operator:"PostAuto Schweiz (Swiss PostBus) Line 213",type:"Bus",
+    purpose:"Day 8 morning — return to TMB trail from Martigny hotel",
+    stop:"Martigny gare (CFF train station bus stop, outside main entrance)",
+    coords:{lat:46.1030,lng:7.0750},
+    summary:"⭐ KEY Jul 13 departure: 07:55 Martigny gare → Col de la Forclaz 08:28 → Trient 08:34. Other departures: 06:00, 11:55, 15:55, 16:55, 17:55, 18:55. ~CHF 4–6. Iconic yellow PostBus.",
+    notes:"Alight at Col de la Forclaz (1527m) for direct hike to Col de Balme, or continue to Trient village. Swiss Half Fare Card and GA Pass accepted. Verify exact 2026 times on sbb.ch or carpostal.ch before travel.",
+    timetable_url:"https://www.tmrsa.ch/en/timetables/",
+    ticket_url:"https://www.sbb.ch/en/",
+    last_verified:"2026-06",
+    stageDay:8
   }
 };
 
@@ -1928,7 +1993,7 @@ function resolvePhotos(place) {
 // TRIP — stages reference PLACE_DATABASE by ID
 // ============================================================
 var TRIP = {
-  meta:{name:"Tour du Mont Blanc",start:"2026-07-06",end:"2026-07-16",days:11,direction:"Counter-Clockwise"},
+  meta:{name:"Tour du Mont Blanc",start:"2026-07-06",end:"2026-07-15",days:10,direction:"Counter-Clockwise"},
   nav:{arrivalRadius:150,poiRadius:300},
   emergency:{
     universal:"112",
@@ -1957,43 +2022,39 @@ var TRIP = {
     {id:"d2",day:2,date:"2026-07-07",country:"France",from:"Les Houches",to:"Les Contamines",
       coords:{lat:45.7874,lng:6.7025},distKm:17.0,gainM:750,lossM:350,timeH:5.5,
       brief:"First real climb with glacier views and a strong opening stage.",
-      lodging:["refuge_pres"],food:["la_boerne"],highlights:["col_voza"],transportRef:"t6",notes:[]},
-    {id:"d3",day:3,date:"2026-07-08",country:"France",from:"Les Contamines",to:"Les Contamines (Upper Valley)",
-      coords:{lat:45.7574,lng:6.7111},distKm:10.0,gainM:750,lossM:200,timeH:4.0,
-      brief:"Rustic mountain atmosphere before the tougher high-pass terrain.",
-      lodging:["refuge_balme"],food:["notre_dame_gorge","refuge_balme"],highlights:["balme_plateau"],transportRef:null,notes:[]},
-    {id:"d4",day:4,date:"2026-07-09",country:"France",from:"Les Contamines",to:"Les Chapieux",
-      coords:{lat:45.6969,lng:6.7337},distKm:20.0,gainM:1150,lossM:1400,timeH:7.0,
-      brief:"One of the high and dramatic mountain-pass days with a useful fallback bus option.",
-      lodging:["refuge_nova","refuge_bonhomme","refuge_mottets"],food:["refuge_bonhomme","les_chapieux_cafe"],highlights:["col_bonhomme"],transportRef:"t1",notes:["Refuge du Bonhomme: open Jun–mid-Aug 2026, then limited Aug 22–Sep 20. Closes for full renovation Sep 2026. Book early.","Les Chapieux bus (t1) runs July–Aug — useful bailout if weather turns."]},
-    {id:"d5",day:5,date:"2026-07-10",country:"Italy",from:"Val Veny",to:"Courmayeur",
-      coords:{lat:45.7936,lng:6.9694},distKm:24.0,gainM:1420,lossM:1750,timeH:8.0,
-      brief:"Italian alpine hospitality, espresso, pizza, and recovery energy after the border crossing.",
-      lodging:["rifugio_chapy","rifugio_bertone","rifugio_maison_vieille","rifugio_elisabetta"],food:["pizzeria_tunnel","pan_per","cadran_solaire"],highlights:["col_seigne","lac_combal"],transportRef:"t2",notes:[]},
-    {id:"d6",day:6,date:"2026-07-11",country:"Switzerland",from:"Courmayeur",to:"La Fouly",
-      coords:{lat:45.9333,lng:7.0939},distKm:25.0,gainM:1600,lossM:1300,timeH:8.5,
-      brief:"Switzerland transition stage with big scenery and a classic alpine farm stop.",
-      lodging:["auberge_maya_joie","rifugio_elena","rifugio_bonatti"],food:["alpage_peule"],highlights:["grand_col_ferret"],transportRef:"t7",notes:["Longest stage on the TMB at 25km. Start early — aim to leave Courmayeur by 07:30.","Grand Col Ferret (2537m) can have snow in June. Carry poles and gaiters if weather uncertain."]},
-    {id:"d7",day:7,date:"2026-07-12",country:"Switzerland",from:"La Fouly",to:"Champex-Lac",
-      coords:{lat:46.0274,lng:7.1189},distKm:15.0,gainM:500,lossM:800,timeH:4.5,
-      brief:"A calmer Swiss stage ending at a lakeside stop with a legendary dessert.",
-      lodging:["gite_bon_abri"],food:["relais_arpette","chez_la_tante"],highlights:["lac_champex"],transportRef:null,notes:[]},
-    {id:"d8",day:8,date:"2026-07-13",country:"Switzerland / France",from:"Champex-Lac",to:"Trient",
-      coords:{lat:46.0557,lng:7.0228},distKm:16.0,gainM:1150,lossM:1050,timeH:6.0,
-      brief:"Scenic transition day with valley views and a clean fallback transport option.",
-      lodging:["relais_mont_blanc_trient","hotel_forclaz"],food:["alp_bovine"],highlights:["fenetre_arpette"],transportRef:"t3",notes:["Two routes: Fenêtre d'Arpette (harder, +1400m, stunning views) vs Alp Bovine (easier, the famous rosti stop). Both end in Trient.","PostBus t3 to Martigny is the backup if weather closes the Fenêtre."]},
-    {id:"d9",day:9,date:"2026-07-14",country:"France",from:"Trient",to:"Argenti\u00e8re / Le Tour",
-      coords:{lat:45.9782,lng:6.8686},distKm:17.0,gainM:1100,lossM:1100,timeH:5.5,
-      brief:"The final stretch begins, with huge Mont Blanc massif views.",
-      lodging:["gite_charamillon","chalet_alpin_tour","refuge_col_balme"],food:["boulangerie_argentiere"],highlights:["col_balme","aiguillette_posettes"],transportRef:"t4",notes:[]},
-    {id:"d10",day:10,date:"2026-07-15",country:"France",from:"Argenti\u00e8re / Le Tour",to:"Les Houches",
+      lodging:["refuge_pres"],food:["la_boerne"],highlights:["col_voza"],transportRef:"t6",notes:["⚠️ Refuge des Prés is NOT served by luggage transfer — carry an overnight kit. Your main bag goes ahead from Les Méandres to Hostellerie du Petit Saint Bernard (waiting for you on Jul 8).","Refuge des Prés: arrival max 18:00, dinner 19:00 (booked & confirmed)."]},
+    {id:"d3",day:3,date:"2026-07-08",country:"France",from:"Les Contamines",to:"Col du Petit Saint Bernard",
+      coords:{lat:45.6762,lng:6.8847},distKm:19.0,gainM:1300,lossM:1400,timeH:7.5,
+      brief:"The hardest hiking day: full Stage 2 over Col du Bonhomme and Col de la Croix du Bonhomme, then taxi to Hostellerie du Petit Saint Bernard.",
+      lodging:["hostellerie_petit_st_bernard"],food:["notre_dame_gorge","refuge_bonhomme","les_chapieux_cafe"],highlights:["col_bonhomme"],transportRef:null,notes:["Use the FREE Les Contamines navette: village centre → Notre-Dame-de-la-Gorge (saves 4km, ~1h walk). First bus ~07:53, every 30–40 min. Runs Jun 13–Sep 13 2026. Pick up at Les Contamines mairie (town hall).","Refuge de la Balme (1706m) is a LUNCH stop only — no overnight booked there.","After descending to Les Chapieux (1554m): take a taxi to Hostellerie du Petit Saint Bernard (~45 min, ~€40–50). No direct public transport on this route.","Refuge du Bonhomme (2443m) at the top: excellent lunch and emergency shelter. ⚠️ Open Jul 2026 but books fast — no reservation needed for lunch."]},
+    {id:"d4",day:4,date:"2026-07-09",country:"Italy",from:"Col du Petit Saint Bernard",to:"Rifugio Bertone",
+      coords:{lat:45.7910,lng:6.9750},distKm:5.0,gainM:780,lossM:0,timeH:2.5,
+      brief:"Taxi or walk down to La Thuile, Arriva 573 bus to Courmayeur, lunch in town, then the short steep climb up to Rifugio Bertone for the night.",
+      lodging:["rifugio_bertone"],food:["pizzeria_tunnel","pan_per","cadran_solaire"],highlights:[],transportRef:"t8",notes:["From Col du Petit Saint Bernard: taxi to La Thuile (~45 min, ~€40–50) or walk (~13km downhill, ~3h). Get to La Thuile in time for the bus.","Arriva 573 La Thuile → Courmayeur: best departure 08:10 → 08:37. Other options: 09:18, 11:15, 14:25, 16:13, 17:43. ⚠️ Avoid 07:15 and 13:05 — those only go to Pré-Saint-Didier, NOT Courmayeur.","Long lunch stop in Courmayeur: eat well, charge devices, resupply. Then follow trail signs to Villair / Rifugio Bertone (~5km, +780m, ~2.5h). A local taxi to the Villair trailhead saves ~2km of road walking.","⚠️ Bertone is NOT served by luggage transfer — carry an overnight kit; your bag goes ahead to Auberge Maya-Joie (La Fouly).","Rifugio Bertone arrival max 18:00, dinner 19:30 (booked & confirmed for tonight).","Col de la Seigne is NOT part of your route. You're going around via La Thuile instead."]},
+    {id:"d5",day:5,date:"2026-07-10",country:"Italy / Switzerland",from:"Rifugio Bertone",to:"La Fouly",
+      coords:{lat:45.9337,lng:7.0940},distKm:18.0,gainM:900,lossM:1100,timeH:6.5,
+      brief:"The big Italy-to-Switzerland crossing: balcony trail to Bonatti, up and over Grand Col Ferret (2537m), descend to La Fouly.",
+      lodging:["auberge_maya_joie"],food:["alpage_peule","chez_la_tante"],highlights:["grand_col_ferret"],transportRef:null,notes:["Route: Bertone → Rifugio Bonatti (balcony trail) → Arnuva → Grand Col Ferret (2537m) → La Peule → La Fouly. ~18km, ~6.5h.","Grand Col Ferret (2537m) can have snow patches in early July. Carry poles and gaiters.","Alpage de La Peule: unmissable lunch stop on the Swiss descent — cheese crust and farm views.","Your main bag is waiting at Auberge Maya-Joie (arrival max 18:00, dinner 18:45 — booked & confirmed).","SAVDA/Arriva local shuttle t2 (Val Ferret) is an emergency bailout back to Courmayeur if weather turns before the col."]},
+    {id:"d6",day:6,date:"2026-07-11",country:"Switzerland",from:"La Fouly",to:"Champex-Lac",
+      coords:{lat:46.0274,lng:7.1189},distKm:15.0,gainM:450,lossM:550,timeH:4.5,
+      brief:"Gentle Swiss valley day: down the Val Ferret through Praz-de-Fort and Issert, then the wooded climb to lakeside Champex.",
+      lodging:["gite_bon_abri"],food:["chez_la_tante","relais_arpette"],highlights:["lac_champex"],transportRef:"t7",notes:["Relaxed recovery day after the col: La Fouly → Praz-de-Fort → Issert → Champex-Lac. ~15km, ~4.5h, mostly valley walking.","PostBus t7 (La Fouly → Orsières → Champex) is your bailout / shortcut if legs need a break.","Gîte Bon Abri: rooms ready from 16:00, reserved until 18:00; dinner 19:00 (booked & confirmed).","Arrive early enough for a swim or paddle at Lac de Champex — best light in late afternoon."]},
+    {id:"d7",day:7,date:"2026-07-12",country:"Switzerland",from:"Champex-Lac",to:"Martigny",
+      coords:{lat:46.1030,lng:7.0750},distKm:16.0,gainM:1100,lossM:1150,timeH:6.0,
+      brief:"Traverse Alp Bovine, descend to Trient, then PostBus to Martigny city. Optional Orsières train shortcut.",
+      lodging:["martigny_boutique_hotel"],food:["alp_bovine"],highlights:["fenetre_arpette"],transportRef:"t3",notes:["PLANNED ROUTE: Champex-Lac → Alp Bovine (1987m) → Col de la Forclaz → Trient (~16km, ~6h). Then PostBus t3 from Trient → Martigny (~43 min). Aim to reach Trient by 17:00.","BOVINE HIGHLIGHT: Alp Bovine is one of the most scenic sections on the Swiss TMB — famous for rösti, chocolate cake, and panoramic Rhône Valley views. Don't skip it.","ORSIÈRES SHORTCUT (if tired): Walk Champex-Lac → Orsières (~6km, -580m, ~2h all downhill), then Saint Bernard Express train t9 to Martigny (~25 min). ⚠️ Skips Alp Bovine entirely.","TOMORROW (Day 8): PostBus t10 departs Martigny gare 07:55 → Col de la Forclaz 08:28. Walk to station is ~5 min from hotel. Be there by 07:50."]},
+    {id:"d8",day:8,date:"2026-07-13",country:"Switzerland / France",from:"Martigny",to:"Le Tour / Argentière",
+      coords:{lat:45.9850,lng:6.9700},distKm:14.0,gainM:900,lossM:1050,timeH:5.5,
+      brief:"PostBus back to trail, then Col de Balme and final descent to Le Tour. Last big mountain day.",
+      lodging:["chalet_alpin_tour"],food:["boulangerie_argentiere"],highlights:["col_balme","aiguillette_posettes"],transportRef:"t10",notes:["CRITICAL: PostBus t10 — be at Martigny gare by 07:50. Departs 07:55 → Col de la Forclaz 08:28 → Trient 08:34.","Alight at Col de la Forclaz (1527m) to hike direct to Col de Balme: ~14km, +700m, -1000m, ~5h. Or stay on to Trient and start from the village.","Col de Balme (2204m) is the Swiss-French border and final high point of your TMB.","Aiguillette des Posettes ridge variant from Col de Balme: +130m extra for 360° Mont Blanc views. Highly recommended if energy allows.","Chalet Alpin du Tour: in Le Tour village, 3km from Argentière. FFCAM chalet — confirm dinner reservation."]},
+    {id:"d9",day:9,date:"2026-07-14",country:"France",from:"Le Tour / Argentière",to:"Les Houches",
       coords:{lat:45.9006,lng:6.7993},distKm:18.0,gainM:900,lossM:1400,timeH:6.0,
-      brief:"Closing the loop back to the classic starting point.",
-      lodging:["gite_meandres"],food:["cafe_des_guides_chamonix","wine_factory"],highlights:["aiguilles_rouges"],transportRef:null,notes:["You\u2019ve done it — the loop is complete. Tonight back at Les Houches, celebrate in Chamonix."]},
-    {id:"d11",day:11,date:"2026-07-16",country:"France",from:"Les Houches",to:"Trip Complete",
+      brief:"Closing the loop. The TMB's final stage returns through the Chamonix valley to Les Houches. You've done it.",
+      lodging:["gite_meandres"],food:["cafe_des_guides_chamonix","wine_factory","boulangerie_houches"],highlights:["aiguilles_rouges"],transportRef:"t4",notes:["Final stage of the Tour du Mont Blanc — you've completed the full circuit!","Option: Bus Line 1 (t4) from Argentière → Chamonix centre for a celebration dinner before returning to Les Houches.","Carte d'Hôte from Chalet Alpin du Tour makes all Chamonix valley buses FREE today.","Gite Les Méandres: your starting and finishing point. Full circle."]},
+    {id:"d10",day:10,date:"2026-07-15",country:"France",from:"Les Houches",to:"Departure",
       coords:{lat:45.9006,lng:6.7993},distKm:null,gainM:null,lossM:null,timeH:null,
-      brief:"Trip complete day. Celebrate! You conquered the TMB!",
-      lodging:[],food:["boulangerie_houches","wine_factory"],highlights:[],transportRef:null,notes:[]}
+      brief:"TMB complete. Depart from Les Houches or linger in Chamonix to celebrate.",
+      lodging:[],food:["boulangerie_houches","cafe_des_guides_chamonix","wine_factory"],highlights:[],transportRef:"t5",notes:["Tour du Mont Blanc COMPLETE. 9 hiking days, ~142km, done.","Mont Blanc Express train (t5) from Les Houches or Chamonix connects to Geneva Airport in ~2h (via Martigny).","Treat yourself to a final croissant and café allongé before heading home."]}
   ],
   poiCategories:["viewpoint","cafe","restaurant","bakery","attraction","refuge","water","transport"]
 };
@@ -2925,15 +2986,4 @@ function App(){
     ),
     h('div',{style:{flex:1,display:'flex',flexDirection:'column',overflow:'hidden'}},screen),
     h('nav',{className:'tab-bar'},
-      [{id:'today',label:'Today',icon:Ic.today},{id:'map',label:'Map',icon:Ic.map},{id:'stages',label:'Stages',icon:Ic.list},{id:'nearby',label:'Nearby',icon:Ic.compass},{id:'connect',label:'Connect',icon:Ic.link},{id:'emergency',label:'SOS',icon:Ic.shield}].map(function(t){
-        var active=tab===t.id||(tab==='detail'&&t.id==='stages');
-        return h('button',{key:t.id,className:'tab-btn'+(active?' on':''),onClick:function(){nav(t.id)}},h(t.icon,null),h('span',null,t.label));
-      })
-    )
-  );
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(h(App));
-</script>
-</body>
-</html>
+      [{id:'today',label:'Today',icon:Ic.today},{id:'
